@@ -1,0 +1,18 @@
+# Common rails ignores
+.rvmrc
+.DS_Store
+.bundle
+.sass-cache/
+docs/
+db/*.sqlite3
+db/schema.rb
+db/*.sql
+public/uploads/
+public/assets/
+public/passenger.*
+public/javascripts/
+public/stylesheets/
+vendor/ruby/
+*.swp
+/log/*.log
+/tmp

@@ -1,0 +1,11 @@
+- content_for :title, 'Resend unlock instructions'
+- content_for :sidebar do
+  %p If you've been locked out of the application, but cannot find the instruction to unlock you account.
+  %p Submit you email address and we'll resend your unlock instructions.
+
+= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :class => 'form-horizontal', :method => :post }) do |f|
+  = f.error_notification
+  .inputs= f.input :email, :required => true
+  .form-actions= f.button :submit, 'Resend unlock instructions', :class => 'btn-primary'
+
+= render :partial => 'devise/shared/links'
