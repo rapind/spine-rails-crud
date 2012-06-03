@@ -1,5 +1,4 @@
-%h1 New article
-
-= render 'form'
+= simple_form_for(@article, :url => admin_articles_path) do |form|
+  = render form
 
 = link_to 'Back', admin_articles_path
