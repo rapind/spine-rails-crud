@@ -3,44 +3,38 @@ class Admin::ArticlesController < Admin::HomeController
 
   def index
     @articles = Article.all
-    respond_with(:admin, @articles)
+    respond_with @articles
   end
 
   def show
-    @article = Article.find(params[:id])
-    respond_with(:admin, @article)
+    @article = Article.find params[:id]
+    respond_with @article
   end
 
   def new
     @article = Article.new
-    respond_with(:admin, @article)
+    respond_with @article
   end
 
   def edit
-    @article = Article.find(params[:id])
-    respond_with(:admin, @article)
+    @article = Article.find params[:id]
   end
 
   def create
-    @article = Article.new(params[:article])
-    @article.save
-    respond_with(:admin, @article)
+    @article = Article.new params[:article]
+    flash[:notice] = 'Article was successfully created.' if @article.save
+    respond_with :admin, @article
   end
 
   def update
-    @article = Article.find(params[:id])
-    @article.update_attributes(params[:article])
-    respond_with(:admin, @article)
+    @article = Article.find params[:id]
+    flash[:notice] = 'Article was successfully updated.' if @article.update_attributes(params[:article])
+    respond_with :admin, @article
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = Article.find params[:id]
     @article.destroy
-
-    respond_to do |format|
-      format.html { redirect_to admin_articles_url }
-      format.json { head :no_content }
-    end
+    respond_with @article
   end
-
 end

@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
 
   # Mass assignment protection
-  attr_accessible :body, :title
+  attr_accessible :title, :body
 
   # Validations
   validates :title, :presence => true, :uniqueness => { :case_sensitive => false }, :length => { :within => 3..64 }

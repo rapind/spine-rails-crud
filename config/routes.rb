@@ -1,5 +1,7 @@
 BackboneRailsCrud::Application.routes.draw do
 
+  resources :articles
+
   # Authentication
   devise_for :administrators
 

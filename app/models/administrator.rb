@@ -7,4 +7,9 @@ class Administrator < ActiveRecord::Base
 
   # Mass assignment protection
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+
+  def as_json(options = {})
+    super(options.merge(:except => [ :password, :encrypted_password ]))
+  end
 end

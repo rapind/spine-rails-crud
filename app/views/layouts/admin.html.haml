@@ -6,35 +6,36 @@
     = javascript_include_tag 'admin'
     = csrf_meta_tags
   %body
-  .navbar.navbar-fixed-top
-    .navbar-inner
-      .container
-        %ul.nav
-          - if administrator_signed_in?
-            %li{ :class => controller.controller_name == 'articles' ? 'active' : '' }= link_to 'Articles', admin_articles_path
-            %li.divider-vertical
-            %li{ :class => controller.controller_name == 'producers' ? 'active' : '' }= link_to 'Producers', admin_administrators_path
-            %li= link_to 'Logout', destroy_administrator_session_path, :method => :delete
-        .pull-right= link_to('Backbone & Rails Admin', admin_path, :class => 'brand')
-  .container
-    - if notice
-      .alert.alert-block{ :'data-dismiss' => 'alert' }
-        %a.close ×
-        %p= notice
-    - if content_for?(:title)
-      .page-header
-        %h1= yield(:title)
-    .row
-      - if content_for?(:sidebar)
-        .span3
-          .well
-            %h2 Instructions
-            = yield(:sidebar)
-            %p &nbsp;
-            %p &nbsp;
-        .span9= yield
-      - else
-        .span12= yield
-  #footer.container
-    = link_to 'Copyleft', 'http://en.wikipedia.org/wiki/Copyleft'
-    2012 You Company Name. All rights reserved.
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %ul.nav
+            - if administrator_signed_in?
+              %li{ :class => controller.controller_name == 'articles' ? 'active' : '' }= link_to 'Articles', admin_articles_path
+              %li.divider-vertical
+              %li{ :class => controller.controller_name == 'producers' ? 'active' : '' }= link_to 'Producers', admin_administrators_path
+              %li= link_to 'Logout', destroy_administrator_session_path, :method => :delete
+          .pull-right= link_to('Backbone & Rails Admin', admin_path, :class => 'brand')
+    .container
+      - if notice
+        .alert.alert-block{ :'data-dismiss' => 'alert' }
+          %a.close ×
+          %p= notice
+      - if content_for?(:title)
+        .page-header
+          %h1= yield(:title)
+      .row
+        - if content_for?(:sidebar)
+          .span3
+            .well
+              %h2 Instructions
+              = yield(:sidebar)
+              %p &nbsp;
+              %p &nbsp;
+          .span9= yield
+        - else
+          .span12= yield
+    #footer.container
+      = link_to 'Copyleft', 'http://en.wikipedia.org/wiki/Copyleft'
+      2012 You Company Name. All rights reserved.
+    = yield :javascript

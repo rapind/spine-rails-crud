@@ -8,12 +8,16 @@ gem 'sqlite3'
 # Server
 gem 'thin'
 
+# Thin controllers
+gem 'responders'
+
 # Server Templates
 gem 'haml'
 
 # Javascript
 gem 'json'
 gem 'jquery-rails'
+gem 'spine-rails'
 
 # JSON API
 gem 'rabl'
@@ -34,6 +38,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'haml_coffee_assets'
+  gem 'execjs'
   gem 'uglifier'
 end
 

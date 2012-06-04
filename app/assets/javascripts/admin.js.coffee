@@ -1,7 +1,18 @@
-#= require jquery-1.7.2
-#= require bootstrap-2.0.4
-#= require json2
-#= require underscore-1.3.3
-#= require backbone-0.9.2
-#= require hamlcoffee
+#= require jquery
+#= require jquery_ujs
+#= require bootstrap
 #
+#= require json2
+#= require hamlcoffee
+#= require spine
+#= require spine/manager
+#= require spine/ajax
+#= require spine/route
+#= require admin/index
+
+jQuery ->
+  $('a[data-remote="true"]').on "ajax:error", (xhr, status, error) ->
+    console.log(xhr) #.append xhr.responseText
+
+  $('a[data-remote="true"]').on "ajax:success", (data, status, xhr) ->
+    console.log(xhr) #.append xhr.responseText
