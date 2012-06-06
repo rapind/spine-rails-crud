@@ -9,7 +9,7 @@ class Admin extends Spine.Controller
     super
 
     # Initialize controllers:
-    #  @append(@items = new Admin.Items)
+    @append(@articles = new Admin.Articles)
     #  ...
 
     Spine.Route.setup()

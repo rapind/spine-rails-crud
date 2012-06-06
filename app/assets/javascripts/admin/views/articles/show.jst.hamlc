@@ -1,1 +1,13 @@
-.show
+.page-header
+  %h1 Show Article
+
+%p
+  %a{ :'data-type' => 'edit' } Edit
+  %a{ :'data-type' => 'back' } Back
+
+%p
+  %label Title:
+  = @title
+%p
+  %label Body:
+  = @body

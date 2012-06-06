@@ -17,7 +17,6 @@ gem 'haml'
 # Javascript
 gem 'json'
 gem 'jquery-rails'
-gem 'spine-rails'
 
 # JSON API
 gem 'rabl'
@@ -37,6 +36,8 @@ gem 'kaminari'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'spine-rails'
+  gem 'eco'
   gem 'haml_coffee_assets'
   gem 'execjs'
   gem 'uglifier'

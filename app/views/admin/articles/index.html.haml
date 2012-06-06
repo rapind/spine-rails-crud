@@ -1,29 +1,7 @@
-- content_for :title, 'Articles'
-
-%p= link_to 'New Article', new_admin_article_path
-
-%table#articles.table.table-striped.table-bordered
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th
-      %th
-      %th
-  %tbody
-    - @articles.each do |article|
-      %tr
-        %td= article.title
-        %td= article.body
-        %td= link_to 'Show', admin_article_path(article)
-        %td= link_to 'Edit', edit_admin_article_path(article)
-        %td= link_to 'Destroy', admin_article_path(article), :confirm => 'Are you sure?', :remote => true, :'data-type' => :json, :method => :delete
-
-%br
-
-= link_to 'New Article', new_admin_article_path
-
+#admin
 
 = content_for :javascript do
-  = javascript_tag do
-    //
+  :javascript
+    jQuery(function() {
+      new Admin({el: $("#admin")});
+    });
